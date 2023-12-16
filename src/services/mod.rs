@@ -39,7 +39,7 @@ impl Services{
 
     let response = self.client.get(whole_url).send()?;
     let response_text = response.text()?;
-    let response_json: ApiResult<T> = serde_json::from_str(&response_text.to_owned())?;
+    let response_json: ApiResult<T> = serde_json::from_str(&response_text)?;
 
     Ok(response_json.result)
   }

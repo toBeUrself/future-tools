@@ -87,16 +87,14 @@ pub struct LeverageBracket {
 }
 
 impl BracketList {
-  pub fn get_symbol_bracket(&self, symbol: &str) -> Result<&Vec<LeverageBracket>> {
+  pub fn get_symbol_bracket(&self, symbol: &str) -> Option<&Vec<LeverageBracket>> {
     if let Some(wrapper) = &self.bracket_wrapper {
       if let Some(result) = wrapper.into_iter().find(|wrap| wrap.symbol == symbol) {
-        Ok(&result.leverage_brackets)
-      } else {
-        bail!("not find")
+        return Some(&result.leverage_brackets)
       }
-    } else {
-      bail!("not find")
     }
+
+    None
   }
 }
 
@@ -133,12 +131,12 @@ pub struct SymbolItem {
 }
 
 impl SymbolList {
-  pub fn get_symbol_config(&self, symbol: &str) -> Result<&SymbolItem> {
+  pub fn get_symbol_config(&self, symbol: &str) -> Option<&SymbolItem> {
     if let Some(item) = self.symbols.as_slice().into_iter().find(|item| item.symbol == symbol) {
-      Ok(item)
-    } else {
-      bail!("not find symbol config")
+      return Some(item);
     }
+    
+    None
   }
 }
 
