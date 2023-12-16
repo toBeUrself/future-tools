@@ -1,0 +1,17 @@
+{
+  "workbench.colorCustomizations": {
+    "[Default Dark+]": {
+      "editorInlayHint.foreground": "#868686f0",
+      "editorInlayHint.background": "#3d3d3d48",
+      "editorInlayHint.typeForeground": "#c79f0df0",
+      "editorInlayHint.parameterForeground": "#c79f0df0"
+    },
+    "activityBar.background": "#4A231A",
+    "titleBar.activeBackground": "#673025",
+    "titleBar.activeForeground": "#FDF9F9"
+  },
+  "rust-analyzer.linkedProjects": [
+    "./Cargo.toml"
+  ],
+  "rust-analyzer.showUnlinkedFileNotification": false
+}
